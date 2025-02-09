@@ -90,6 +90,7 @@
         <!-- Kcal Activity -->
         <activity
             android:name=".kcal.KcalActivity"
+            android:excludeFromRecents="true"
             android:exported="true"
             android:label="@string/kcal_title"
             android:screenOrientation="portrait">
@@ -102,6 +103,7 @@
         <!-- Touch Gesture Settings Activity -->
         <activity
             android:name=".touch.TouchscreenGestureSettings"
+            android:excludeFromRecents="true"
             android:exported="true"
             android:label="@string/touchscreen_gesture_settings_title">
             <intent-filter>
