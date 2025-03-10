@@ -15,7 +15,6 @@ import android.content.pm.PackageManager;
 import org.evolution.oplus.OPlusExtras.doze.DozeUtils;
 import org.evolution.oplus.OPlusExtras.kcal.Kcal;
 
-
 public class Startup extends BroadcastReceiver {
 
     private static final String TAG = Startup.class.getSimpleName();
@@ -51,6 +50,5 @@ public class Startup extends BroadcastReceiver {
             Kcal.restoreContrastSetting(context);
             Kcal.restoreHueSetting(context);
             Kcal.restoreValueSetting(context);
-       
     }
 }

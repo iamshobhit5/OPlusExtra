@@ -266,10 +266,11 @@
 
         <org.evolution.oplus.OPlusExtras.CustomSeekBarPreference
             android:key="vibrator_strength"
+            android:icon="@drawable/ic_intensity_icon"
             android:title="@string/vibrator_strength_title"
             android:summary="@string/vibrator_strength_summary"
             android:persistent="true"
-            android:max="3"
+            android:max="5"
             android:min="0"
             android:defaultValue="3" />
     </PreferenceCategory>
