@@ -18,6 +18,7 @@
 
         <ListPreference
             android:key="slider_usage"
+            android:icon="@drawable/ic_slider"
             android:dialogTitle="@string/alert_slider_usage_title"
             android:title="@string/alert_slider_usage_title"
             android:entries="@array/alert_slider_usage_entries"
@@ -26,18 +27,21 @@
 
         <ListPreference
             android:key="action_top_position"
+            android:icon="@drawable/ic_up_icon"
             android:dialogTitle="@string/alert_slider_selection_dialog_title"
             android:title="@string/alert_slider_top_position"
             android:summary="%s" />
 
         <ListPreference
             android:key="action_middle_position"
+            android:icon="@drawable/ic_middle_icon"
             android:dialogTitle="@string/alert_slider_selection_dialog_title"
             android:title="@string/alert_slider_middle_position"
             android:summary="%s" />
 
         <ListPreference
             android:key="action_bottom_position"
+            android:icon="@drawable/ic_down_icon"
             android:dialogTitle="@string/alert_slider_selection_dialog_title"
             android:title="@string/alert_slider_bottom_position"
             android:summary="%s" />
@@ -207,6 +211,7 @@
 
         <SwitchPreference
             android:key="edge_limit"
+            android:icon="@drawable/ic_edge_touch"
             android:title="@string/edge_limit_title"
             android:summary="@string/edge_limit_summary" />
 
@@ -244,6 +249,7 @@
 
         <SwitchPreference
             android:key="usb2_fast_charge"
+            android:icon="@drawable/ic_usb2_fc"
             android:title="@string/usb2_fast_charge_title"
             android:summary="@string/usb2_fast_charge_summary" />
 
