@@ -1,12 +1,14 @@
 package org.evolution.oplus.OPlusExtras.utils;
 
+import android.service.quicksettings.Tile;
+import android.service.quicksettings.TileService;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
 
 public class QsTileService extends TileService {
 
-  private final string KEY_EDGE_LIMIT = "edge_limit";
+  private final String KEY_EDGE_LIMIT = "edge_limit";
 
   // Called when the user adds your tile.
   @Override
