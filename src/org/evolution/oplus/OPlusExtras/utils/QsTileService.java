@@ -26,6 +26,8 @@ public class QsTileService extends TileService {
 
     Tile tile = getQsTile();
     tile.setState(value ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+
+    tile.updateTile();
   }
 
   // Called when your app can no longer update your tile.
