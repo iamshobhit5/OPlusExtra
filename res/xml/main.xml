@@ -64,17 +64,6 @@
         android:key="category_display"
         android:title="@string/category_display">
 
-        <Preference
-            android:key="ambient_display_gestures_settings"
-            android:icon="@drawable/ic_aod"
-            android:title="@string/ambient_display_gestures_title"
-            android:summary="@string/ambient_display_gestures_summary"
-            android:persistent="false" >
-            <intent android:action="android.intent.action.MAIN"  
-                    android:targetPackage="org.evolution.oplus.OPlusExtras"
-                    android:targetClass="org.evolution.oplus.OPlusExtras.doze.DozeSettingsActivity" />
-        </Preference>
-
         <SwitchPreference    
             android:key="antiflicker"
             android:icon="@drawable/ic_unfold_more_double"
@@ -99,16 +88,6 @@
             android:summary="@string/hbm_info" 
             android:persistent="false" />
 
-        <Preference
-            android:key="kcal"
-            android:icon="@drawable/ic_kcal"
-            android:title="@string/kcal_title"
-            android:summary="@string/kcal_summary"
-            android:persistent="false" >
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="org.evolution.oplus.OPlusExtras"
-                    android:targetClass="org.evolution.oplus.OPlusExtras.kcal.KcalActivity" />
-        </Preference>
 
         <SwitchPreference
             android:key="keep_pcc"

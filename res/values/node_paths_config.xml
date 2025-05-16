@@ -14,14 +14,6 @@
     <!-- Anti-Flicker sysfs node path -->
     <string name="node_antiflicker_switch" translatable="false"></string>
 
-    <!-- Kcal sysfs node paths -->
-    <string name="node_red_preference" translatable="false"></string>
-    <string name="node_green_preference" translatable="false"></string>
-    <string name="node_blue_preference" translatable="false"></string>
-    <string name="node_saturation_preference" translatable="false"></string>
-    <string name="node_contrast_preference" translatable="false"></string>
-    <string name="node_hue_preference" translatable="false"></string>
-    <string name="node_value_preference" translatable="false"></string>
 
     <!-- Keep PCC sysfs node path -->
     <string name="node_keep_pcc_switch" translatable="false"></string>

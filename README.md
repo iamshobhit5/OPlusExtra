@@ -4,7 +4,7 @@
 
 ## About the project:
 
-OPlusExtras is a device specifc parts application, aimed at addressing the challenge of maintaining multiple devices with varying feature sets. One of the key advantages of OPlusExtras is its ability to configure node paths, doze sensor names, and enable/disable features via runtime resource overlay (RRO) packages in the common (OPlusExtraResCommon) and device-specific (OPlusExtrasResTarget) trees. This approach ensures that the application can be run on multiple devices, even if they do not support the same features. With OPlusExtras, users can conveniently enable or disable features on a per-device basis without having to remove code for unsupported features!
+OPlusExtras is a device specifc parts application, aimed at addressing the challenge of maintaining multiple devices with varying feature sets. One of the key advantages of OPlusExtras is its ability to configure node paths, sensor names, and enable/disable features via runtime resource overlay (RRO) packages in the common (OPlusExtraResCommon) and device-specific (OPlusExtrasResTarget) trees. This approach ensures that the application can be run on multiple devices, even if they do not support the same features. With OPlusExtras, users can conveniently enable or disable features on a per-device basis without having to remove code for unsupported features!
 
 ## Current features:
 
@@ -15,7 +15,6 @@ OPlusExtras is a device specifc parts application, aimed at addressing the chall
 | **CPU** | `Touchboost` | Boost CPU frequency on touchscreen input on qcom devices. | WIP|
 | **Display** | `High brightness mode` | Enable peak luminance. | N/A |
 |  | `Antiflicker` | Prevent extensive flickering and reduce eye strain in low light conditions. |N/A |
-|  | `Kernel color calibration` | Calibrate display via Kcal on qcom devices (red, green, blue, saturation, hue, contrast, value). |[Commit 1/1](https://github.com/Evolution-X-Devices/kernel_oneplus_sm8250/commit/b58a0a2601827307083640cbb01e54382b289ca3) |
 |  | `Keep PCC` | Keeps panel color correction enabled when the UDFPS circle is pressed. |[Commit 1/1](https://github.com/Evolution-X-Devices/kernel_oneplus_sm8250/commit/c299b2cd6d444868121b1536b04e09efcfb24d6d) |
 |  | `Ambient display gestures` | Raise2wake, Raise2pulse & pull-from-pocket to pulse. |N/A |
 | **Filesystem** | `Fsync` | Force disable filesystem syncing for increased performance at the risk of data loss in the event of a system crash. | [Commit 1/3](https://github.com/Evolution-X-Devices/kernel_oneplus_sm8250/commit/1c3d6adc793ec96cc79e01b165f8d5f88f047c20) [Commit 2/3](https://github.com/Evolution-X-Devices/kernel_oneplus_sm8250/commit/18311a4002da7c53fe9a833da19721e3e0707c48) [Commit 3/3](https://github.com/Evolution-X-Devices/kernel_oneplus_sm8250/commit/c6db6a83f71fcff921cb87f10ddc95b17740cf1c)|
@@ -49,7 +48,6 @@ By default, the application appears empty except for the "UI Bench" category, un
 
 - `res/values/supported_features_config.xml`: Allows for features to be shown or hidden by keeping or removing the corresponding preference during onCreatePreferences and controls whether some services start or not. [link](https://raw.githubusercontent.com/Evolution-X-Devices/packages_apps_OPlusExtras/tiramisu/res/values/supported_features_config.xml)
 - `res/values/node_paths_config.xml`: Set sysfs/procfs node paths for the corresponding features. [link](https://raw.githubusercontent.com/Evolution-X-Devices/packages_apps_OPlusExtras/tiramisu/res/values/node_paths_config.xml)
-- `res/values/doze_sensors_config.xml`: Defines the sensors used for ambient display gestures. [link](https://raw.githubusercontent.com/Evolution-X-Devices/packages_apps_OPlusExtras/tiramisu/res/values/doze_sensors_config.xml)
 - `res/values/touch_gestures_config.xml`: Set the default actions for off-screen touch gestures. [link](https://raw.githubusercontent.com/Evolution-X-Devices/packages_apps_OPlusExtras/tiramisu/res/values/touch_gestures_config.xml)
 - `res/values/alert_slider_config.xml`: Set the default mode/action order of the alert slider. [link](https://raw.githubusercontent.com/Evolution-X-Devices/packages_apps_OPlusExtras/tiramisu/res/values/alert_slider_config.xml)
 
@@ -68,7 +66,6 @@ OPlusExtrasResTarget (Target or Common)
     └── values
         ├── supported_features_config.xml
         ├── node_paths_config.xml
-        ├── doze_sensors_config.xml
         ├── alert_slider_config.xml
         ├── touch_gestures_config.xml
         └── strings.xml (if applicable)
