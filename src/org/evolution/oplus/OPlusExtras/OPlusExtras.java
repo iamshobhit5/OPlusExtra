@@ -59,8 +59,6 @@ public class OPlusExtras extends PreferenceFragment
     private static final String KEY_HBM_INFO = "hbm_info";
     private SwitchPreference mHBMModeSwitch;
 
-    private static final String KEY_KCAL = "kcal";
-
     private static final String KEY_KEEP_PCC = "keep_pcc";
     private SwitchPreference mKeepPCCModeSwitch;
 
@@ -202,10 +200,7 @@ public class OPlusExtras extends PreferenceFragment
             findPreference(KEY_HBM_INFO).setVisible(false);
         }
 
-        // Kernel color calibartion
-        if (!getResources().getBoolean(R.bool.config_deviceSupportsKcal)) {
-            findPreference(KEY_KCAL).setVisible(false);
-        }
+
 
         // Keep PCC enabled switch
         mKeepPCCModeSwitch = (SwitchPreference) findPreference(KEY_KEEP_PCC);
