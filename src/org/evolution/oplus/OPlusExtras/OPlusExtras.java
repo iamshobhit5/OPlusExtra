@@ -165,10 +165,6 @@ public class OPlusExtras extends PreferenceFragment
             findPreference(KEY_TOUCHBOOST).setVisible(false);
         }
 
-       // Ambient display gestures
-       if (!getResources().getBoolean(R.bool.config_deviceSupportsAmbientDisplayGestures)) {
-            findPreference(KEY_AMBIENT_DISPLAY_GESTURES).setVisible(false);
-        }
 
         // Anti-flicker switch
         mAntiFlickerModeSwitch = (SwitchPreference) findPreference(KEY_ANTIFLICKER);
