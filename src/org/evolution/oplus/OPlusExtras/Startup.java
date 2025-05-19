@@ -13,7 +13,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 
 import org.evolution.oplus.OPlusExtras.doze.DozeUtils;
-import org.evolution.oplus.OPlusExtras.kcal.Kcal;
+// import org.evolution.oplus.OPlusExtras.kcal.Kcal;
 
 public class Startup extends BroadcastReceiver {
 
@@ -43,12 +43,12 @@ public class Startup extends BroadcastReceiver {
             // Doze
             DozeUtils.checkDozeService(context);
             // Kcal
-            Kcal.restoreRedSetting(context);
-            Kcal.restoreGreenSetting(context);
-            Kcal.restoreBlueSetting(context);
-            Kcal.restoreSaturationSetting(context);
-            Kcal.restoreContrastSetting(context);
-            Kcal.restoreHueSetting(context);
-            Kcal.restoreValueSetting(context);
+   //         Kcal.restoreRedSetting(context);
+   //         Kcal.restoreGreenSetting(context);
+   //         Kcal.restoreBlueSetting(context);
+   //          Kcal.restoreSaturationSetting(context);
+   //         Kcal.restoreContrastSetting(context);
+   //         Kcal.restoreHueSetting(context);
+   //         Kcal.restoreValueSetting(context);
     }
 }
