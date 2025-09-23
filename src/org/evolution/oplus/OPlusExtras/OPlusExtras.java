@@ -9,7 +9,7 @@ package org.evolution.oplus.OPlusExtras;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -24,10 +24,10 @@ import android.view.MenuItem;
 import androidx.preference.ListPreference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
-import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
 import androidx.preference.Preference;
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
+import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 
 import java.util.Arrays;
 
@@ -35,7 +35,7 @@ import org.evolution.oplus.OPlusExtras.R;
 import org.evolution.oplus.OPlusExtras.slider.SliderConstants;
 import org.evolution.oplus.OPlusExtras.utils.Utils;
 
-public class OPlusExtras extends PreferenceFragment
+public class OPlusExtras extends SettingsBasePreferenceFragment
         implements Preference.OnPreferenceChangeListener {
     private static final String TAG = OPlusExtras.class.getSimpleName();
 
@@ -46,23 +46,21 @@ public class OPlusExtras extends PreferenceFragment
     private ListPreference mBottomKeyPref;
 
     private static final String KEY_TOUCHBOOST = "touchboost";
-    private SwitchPreference mTouchboostModeSwitch;
+    private SwitchPreferenceCompat mTouchboostModeSwitch;
 
     // Display
     private static final String KEY_AMBIENT_DISPLAY_GESTURES = "ambient_display_gestures_settings";
 
     private static final String KEY_ANTIFLICKER = "antiflicker";
     private static final String KEY_ANTIFLICKER_INFO = "antiflicker_info";
-    private SwitchPreference mAntiFlickerModeSwitch;
+    private SwitchPreferenceCompat mAntiFlickerModeSwitch;
 
     private static final String KEY_HBM = "hbm";
     private static final String KEY_HBM_INFO = "hbm_info";
-    private SwitchPreference mHBMModeSwitch;
-
-    private static final String KEY_KCAL = "kcal";
+    private SwitchPreferenceCompat mHBMModeSwitch;
 
     private static final String KEY_KEEP_PCC = "keep_pcc";
-    private SwitchPreference mKeepPCCModeSwitch;
+    private SwitchPreferenceCompat mKeepPCCModeSwitch;
 
     private static final String KEY_MAX_BRIGHTNESS = "max_brightness";
     private static final String MAX_BRIGHTNESS_DEFAULT = "2047";
@@ -71,7 +69,7 @@ public class OPlusExtras extends PreferenceFragment
     // Filesystem
     private static final String KEY_FSYNC = "fsync";
     private static final String KEY_FSYNC_INFO = "fsync_info";
-    private SwitchPreference mFSyncSwitch;
+    private SwitchPreferenceCompat mFSyncSwitch;
 
     // GPU
     private static final String KEY_ADRENOBOOST = "adrenoboost";
@@ -80,10 +78,10 @@ public class OPlusExtras extends PreferenceFragment
 
     // Power
     private static final String KEY_POWERSHARE = "powershare";
-    private SwitchPreference mPowershareModeSwitch;
+    private SwitchPreferenceCompat mPowershareModeSwitch;
 
     private static final String KEY_QUIET_MODE = "quiet_mode";
-    private SwitchPreference mQuietModeSwitch;
+    private SwitchPreferenceCompat mQuietModeSwitch;
 
     // Sound control
     private static final String KEY_MIC_GAIN = "mic_gain";
@@ -96,21 +94,21 @@ public class OPlusExtras extends PreferenceFragment
 
     // Touchscreen
     private static final String KEY_EDGE_LIMIT = "edge_limit";
-    private SwitchPreference mEdgeLimitSwitch;
+    private SwitchPreferenceCompat mEdgeLimitSwitch;
 
     private static final String KEY_HIGH_TOUCH_POLLING_RATE = "high_touch_polling_rate";
     private static final String KEY_HIGH_TOUCH_POLLING_RATE_INFO = "high_touch_polling_rate_info";
-    private SwitchPreference mHighTouchPollingRateSwitch;
+    private SwitchPreferenceCompat mHighTouchPollingRateSwitch;
 
     private static final String KEY_TOUCH_GESTURES = "touchscreen_gestures";
 
     // USB
     private static final String KEY_USB2_FAST_CHARGE = "usb2_fast_charge";
     private static final String KEY_USB2_FAST_CHARGE_INFO = "usb2_fast_charge_info";
-    private SwitchPreference mUSB2FastChargeSwitch;
+    private SwitchPreferenceCompat mUSB2FastChargeSwitch;
 
     private static final String KEY_USB_OTG = "usb_otg";
-    private SwitchPreference mUSBOTGSwitch;
+    private SwitchPreferenceCompat mUSBOTGSwitch;
 
     // Vibrator
     private static final String KEY_VIBRATOR_STRENGTH = "vibrator_strength";
@@ -154,7 +152,7 @@ public class OPlusExtras extends PreferenceFragment
         }
 
         // MSM touchboost switch
-        mTouchboostModeSwitch = (SwitchPreference) findPreference(KEY_TOUCHBOOST);
+        mTouchboostModeSwitch = (SwitchPreferenceCompat) findPreference(KEY_TOUCHBOOST);
         if (Utils.isFileWritable(Nodes.nodeTouchboost(context))) {
             mTouchboostModeSwitch.setEnabled(true);
             mTouchboostModeSwitch.setChecked(sharedPrefs.getBoolean(KEY_TOUCHBOOST, false));
@@ -167,13 +165,9 @@ public class OPlusExtras extends PreferenceFragment
             findPreference(KEY_TOUCHBOOST).setVisible(false);
         }
 
-       // Ambient display gestures
-       if (!getResources().getBoolean(R.bool.config_deviceSupportsAmbientDisplayGestures)) {
-            findPreference(KEY_AMBIENT_DISPLAY_GESTURES).setVisible(false);
-        }
 
         // Anti-flicker switch
-        mAntiFlickerModeSwitch = (SwitchPreference) findPreference(KEY_ANTIFLICKER);
+        mAntiFlickerModeSwitch = (SwitchPreferenceCompat) findPreference(KEY_ANTIFLICKER);
         if (Utils.isFileWritable(Nodes.nodeAntiFlicker(context))) {
             mAntiFlickerModeSwitch.setEnabled(true);
             mAntiFlickerModeSwitch.setChecked(sharedPrefs.getBoolean(KEY_ANTIFLICKER, false));
@@ -188,7 +182,7 @@ public class OPlusExtras extends PreferenceFragment
         }
 
         // High brightness mode switch
-        mHBMModeSwitch = (SwitchPreference) findPreference(KEY_HBM);
+        mHBMModeSwitch = (SwitchPreferenceCompat) findPreference(KEY_HBM);
         if (Utils.isFileWritable(Nodes.nodeHBM(context))) {
             mHBMModeSwitch.setEnabled(true);
             mHBMModeSwitch.setChecked(sharedPrefs.getBoolean(KEY_HBM, false));
@@ -202,13 +196,8 @@ public class OPlusExtras extends PreferenceFragment
             findPreference(KEY_HBM_INFO).setVisible(false);
         }
 
-        // Kernel color calibartion
-        if (!getResources().getBoolean(R.bool.config_deviceSupportsKcal)) {
-            findPreference(KEY_KCAL).setVisible(false);
-        }
-
         // Keep PCC enabled switch
-        mKeepPCCModeSwitch = (SwitchPreference) findPreference(KEY_KEEP_PCC);
+        mKeepPCCModeSwitch = (SwitchPreferenceCompat) findPreference(KEY_KEEP_PCC);
         if (Utils.isFileWritable(Nodes.nodeKeepPCC(context))) {
             mKeepPCCModeSwitch.setEnabled(true);
             mKeepPCCModeSwitch.setChecked(sharedPrefs.getBoolean(KEY_KEEP_PCC, false));
@@ -236,7 +225,7 @@ public class OPlusExtras extends PreferenceFragment
         }
 
         // Fsync switch
-        mFSyncSwitch = (SwitchPreference) findPreference(KEY_FSYNC);
+        mFSyncSwitch = (SwitchPreferenceCompat) findPreference(KEY_FSYNC);
         if (Utils.isFileWritable(Nodes.nodeFSync(context))) {
             mFSyncSwitch.setEnabled(true);
             mFSyncSwitch.setChecked(sharedPrefs.getBoolean(KEY_FSYNC, true));
@@ -293,7 +282,7 @@ public class OPlusExtras extends PreferenceFragment
         }
 
         // Powershare switch
-        mPowershareModeSwitch = (SwitchPreference) findPreference(KEY_POWERSHARE);
+        mPowershareModeSwitch = (SwitchPreferenceCompat) findPreference(KEY_POWERSHARE);
         if (Utils.isFileWritable(Nodes.nodePowershare(context))) {
             mPowershareModeSwitch.setEnabled(true);
             mPowershareModeSwitch.setChecked(sharedPrefs.getBoolean(KEY_POWERSHARE, false));
@@ -307,7 +296,7 @@ public class OPlusExtras extends PreferenceFragment
         }
 
         // OEM wireless charger quiet mode switch
-        mQuietModeSwitch = (SwitchPreference) findPreference(KEY_QUIET_MODE);
+        mQuietModeSwitch = (SwitchPreferenceCompat) findPreference(KEY_QUIET_MODE);
         if (Utils.isFileWritable(Nodes.nodeQuietMode(context))) {
             mQuietModeSwitch.setEnabled(true);
             mQuietModeSwitch.setChecked(sharedPrefs.getBoolean(KEY_QUIET_MODE, false));
@@ -321,7 +310,7 @@ public class OPlusExtras extends PreferenceFragment
         }
 
         // Edge limit switch
-        mEdgeLimitSwitch = (SwitchPreference) findPreference(KEY_EDGE_LIMIT);
+        mEdgeLimitSwitch = (SwitchPreferenceCompat) findPreference(KEY_EDGE_LIMIT);
         if (Utils.isFileWritable(Nodes.nodeEdgeLimit(context))) {
             mEdgeLimitSwitch.setEnabled(true);
             mEdgeLimitSwitch.setChecked(sharedPrefs.getBoolean(KEY_EDGE_LIMIT, false));
@@ -335,7 +324,7 @@ public class OPlusExtras extends PreferenceFragment
         }
 
         // High touch polling rate switch
-        mHighTouchPollingRateSwitch = (SwitchPreference) findPreference(KEY_HIGH_TOUCH_POLLING_RATE);
+        mHighTouchPollingRateSwitch = (SwitchPreferenceCompat) findPreference(KEY_HIGH_TOUCH_POLLING_RATE);
         if (Utils.isFileWritable(Nodes.nodeHighTouchPollingRate(context))) {
             mHighTouchPollingRateSwitch.setEnabled(true);
             mHighTouchPollingRateSwitch.setChecked(sharedPrefs.getBoolean(KEY_HIGH_TOUCH_POLLING_RATE, false));
@@ -355,7 +344,7 @@ public class OPlusExtras extends PreferenceFragment
         }
 
         // USB 2.0 fast charge switch
-        mUSB2FastChargeSwitch = (SwitchPreference) findPreference(KEY_USB2_FAST_CHARGE);
+        mUSB2FastChargeSwitch = (SwitchPreferenceCompat) findPreference(KEY_USB2_FAST_CHARGE);
         if (Utils.isFileWritable(Nodes.nodeUSB2FastCharge(context))) {
             mUSB2FastChargeSwitch.setEnabled(true);
             mUSB2FastChargeSwitch.setChecked(sharedPrefs.getBoolean(KEY_USB2_FAST_CHARGE, false));
@@ -370,7 +359,7 @@ public class OPlusExtras extends PreferenceFragment
         }
 
         // USB-OTG switch
-        mUSBOTGSwitch = (SwitchPreference) findPreference(KEY_USB_OTG);
+        mUSBOTGSwitch = (SwitchPreferenceCompat) findPreference(KEY_USB_OTG);
         if (Utils.isFileWritable(Nodes.nodeOTG(context))) {
             mUSBOTGSwitch.setEnabled(true);
             mUSBOTGSwitch.setChecked(sharedPrefs.getBoolean(KEY_USB_OTG, false));
@@ -584,7 +573,7 @@ public class OPlusExtras extends PreferenceFragment
         super.addPreferencesFromResource(preferencesResId);
         // Initialize node preferences
         for (String pref : SliderConstants.sBooleanNodePreferenceMap.keySet()) {
-            SwitchPreference b = (SwitchPreference) findPreference(pref);
+            SwitchPreferenceCompat b = (SwitchPreferenceCompat) findPreference(pref);
             if (b == null) continue;
             String node = SliderConstants.sBooleanNodePreferenceMap.get(pref);
             if (Utils.isFileReadable(node)) {
@@ -1006,6 +995,6 @@ public class OPlusExtras extends PreferenceFragment
 
     private void showWarning() {
         WarningDialogFragment fragment = new WarningDialogFragment();
-        fragment.show(getFragmentManager(), "warning_dialog");
+        fragment.show(getParentFragmentManager(), "warning_dialog");
     }
 }

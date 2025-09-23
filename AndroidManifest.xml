@@ -18,7 +18,6 @@
         android:name="org.evolution.oplus.OPlusExtras.touch.TRIGGER_SCREEN_OFF_GESTURE"
         android:protectionLevel="signatureOrSystem" />
 
-    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
     <protected-broadcast android:name="org.evolution.oplus.OPlusExtras.slider.UPDATE_SLIDER_POSITION" />
     <protected-broadcast android:name="org.evolution.oplus.OPlusExtras.slider.UPDATE_SLIDER_SETTINGS" />
     <protected-broadcast android:name="org.evolution.oplus.OPlusExtras.touch.UPDATE_SETTINGS" />
@@ -28,7 +27,7 @@
         android:label="@string/oplus_extras_title"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true"
-        android:theme="@style/Theme.SubSettingsBase"
+        android:theme="@style/Theme.SubSettingsBase.Expressive"
         android:exported="true">
 
         <!-- OPlus Extras -->
@@ -48,6 +47,8 @@
             <meta-data
                 android:name="com.android.settings.category"
                 android:value="com.android.settings.category.ia.system" />
+            <meta-data android:name="com.android.settings.keyhint"
+                android:value="crdroid_device_parts_settings" />
             <meta-data android:name="com.android.settings.summary"
                 android:resource="@string/oplus_extras_summary" />
         </activity>
@@ -73,29 +74,7 @@
             android:authorities="${applicationId}.androidx-startup"
             tools:replace="android:authorities"/>
 
-        <!-- Doze Activity -->
-        <activity
-            android:name=".doze.DozeSettingsActivity"
-            android:exported="true"
-            android:label="@string/ambient_display_title">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
-        <!-- Kcal Activity -->
-        <activity
-            android:name=".kcal.KcalActivity"
-            android:excludeFromRecents="true"
-            android:exported="true"
-            android:label="@string/kcal_title"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
         <!-- Touch Gesture Settings Activity -->
         <activity
@@ -128,10 +107,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Doze service -->
-        <service
-            android:name=".doze.DozeService"
-            android:permission="OneplusDozeService" />
 
 
         <!-- QS Tiles service-->
