@@ -11,17 +11,11 @@
     <!-- Whether device supports MSM Touchboost -->
     <bool name="config_deviceSupportsTouchboost">false</bool>
 
-    <!-- Whether device supports Ambient Display Gestures -->
-    <bool name="config_deviceSupportsAmbientDisplayGestures">false</bool>
-
     <!-- Whether device supports Anti-Flicker -->
     <bool name="config_deviceSupportsAntiFlicker">false</bool>
 
     <!-- Whether device supports High Brightness Mode -->
     <bool name="config_deviceSupportsHBM">false</bool>
-
-    <!-- Whether device supports Kcal -->
-    <bool name="config_deviceSupportsKcal">false</bool>
 
     <!-- Whether device supports Keep PCC -->
     <bool name="config_deviceSupportsKeepPCC">false</bool>
